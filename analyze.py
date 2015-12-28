@@ -1,5 +1,7 @@
 import tensorflow as tf
 
+mnist = input_data.read_data_sets("MNIST_data/", one_hot=True)
+
 x = tf.placeholder(tf.float32,[None,784])
 
 # array with zeros, later filled with learning algorithm.
