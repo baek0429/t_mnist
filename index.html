@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MNIST(Hello world in machine learning)</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script src={{ static_url("main.js") }}></script>
+	<style type="text/css">
+		*{
+			margin:0;
+			padding:0;
+		}
+		th{
+			width: 100px;
+			height: 25px;
+		}
+	</style>
+</head>
+<body>
+	<!--this is aweful, shame on html5 canvas, it MUST be defined as tag not css !-->
+	<canvas id="canvas" width=500 height=500 style="border:1px solid #000000;"></canvas>
+	<button id="clear">clear</button>
+	<canvas id="smallcanvas" width=125 height=125 style="border:1px solid #000000;"></canvas>
+	<div style="display:block;float:left;">
+		<table>
+			<th>/</th>
+			<th>1th</th>
+			<th>2th</th>
+			<th>result</th>
+			<tr>
+				<th>1</th>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<th>2</th>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<th>3</th>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<th>4</th>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<th>5</th>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<th>6</th>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<th>7</th>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<th>8</th>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<th>9</th>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+		</table>
+		<p>canvas coordinate</p>
+		<div id="coord"></div>
+		<p>eventX,eventY</p>
+		<div id="coord2"></div>
+		<div id="coord3"></div>
+	</div>
+</body>
+</html>
