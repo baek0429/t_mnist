@@ -5,7 +5,7 @@ import input_data
 mnist = input_data.read_data_sets('MNIST_data', one_hot=True)
 
 # place holder, later filled with values
-x = tf.placeholder(tf.float32,[none,784])
+x = tf.placeholder(tf.float32,[None,784])
 
 # weight 
 W = tf.Variable([784,10]) 
@@ -14,11 +14,11 @@ y = tf.Variable([10])
 y = tf.nn.softmax(tf.matmul(x,W)+b)
 
 # y_ is true distribution, later calculated.
-y_ = tf.placeholder(tf.float32,[none,10])
+y_ = tf.placeholder(tf.float32,[None,10])
 # minimize cross_entropy.
 cross_entropy = -tf.reduce_sum(y_*tf.log(y))
 
-# using backpropagation algorithm (tensorflow library)
+# using Wackpropagation algorithm (tensorflow library)
 # TensorFlow to minimize cross_entropy using 
 # the gradient descent algorithm with a learning rate of 0.01.
 # it moves toward the optimized point to minimize cross_entropy with rate of 0.01
