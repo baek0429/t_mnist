@@ -6,12 +6,6 @@ import json, traceback
 import numpy as np
 from tornado.escape import json_encode
 
-class JSONEncoder(json.JSONEncoder):
-    def default(self, o):
-        if isinstance(o, ObjectId):
-            return str(o)
-        return json.JSONEncoder.default(self, o)
-
 class MainHandler(tornado.web.RequestHandler):
     def get(self):
         self.render("index.html")
@@ -20,7 +14,7 @@ class MNISTHandler(tornado.web.RequestHandler):
     def get(self):
         self.write("mnist")
     def post(self):
-        self.set_header("Content-Type", "text/plain")
+        self.set_header("Content-Type", "json/application")
         input = ((255 - np.array(self.json_args, dtype=np.uint8)) / 255.0).reshape(1, 784)
         obj = { 
             'foo': 'bar',
