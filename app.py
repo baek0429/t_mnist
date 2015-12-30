@@ -49,12 +49,9 @@ class MNISTHandler(tornado.web.RequestHandler):
         self.set_header("Content-Type", "json/application")
         input = ((255 - np.array(self.json_args, dtype=np.uint8)) /
                  255.0).reshape(1, 784)
-        obj = {
-            'foo': 'bar',
-            '1': 2,
-            'false': True
-        }
-        self.write(json_encode(obj))
+        output1 = simple(input)
+        output2 = convolutional(input)
+        self.write(json_encode(output1))
 
     def prepare(self):
         if self.request.headers["Content-Type"].startswith("application/json"):
