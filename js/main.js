@@ -53,19 +53,37 @@ Canvas.prototype.setEvent = function(){
             if (Math.min(...inputs) === 255) {
                 return;
             }
-
             $.ajax({
                 url: '/main',
                 method: 'POST',
                 contentType: 'application/json',
                 data: JSON.stringify(inputs),
                 success: function(val){
-                    console.log(val);
+                    $('#otable tr').find('td').removeClass('success');
+                    $('#otable tr').find('td').html('');
+                    var global_max_index = 0;
+                    for(var i = 0 ; i<2; i++){
+                        var max = 0;
+                        var max_index = 0;
+                        for(var j = 0 ; j<val[i].length; j ++){
+                            var result = val[i][j];
+                            result = Math.round(result*1000);
+                            result = "0." + result;
+                            if(result >max){
+                                max = result;
+                                max_index = j;
+                                global_max_index = max_index;
+                            }
+                            $("#otable tr").eq(j).find('td').eq(i).text(result);
+                        }
+                        $('#otable tr').eq(max_index).find('td').eq(i).addClass('success');
+                    };
+                    $('#otable tr').eq(global_max_index).find('td').eq(2).html('this');
                 },
             });
-        });
-    img.src = that.canvas.toDataURL();
-    })
+});
+img.src = that.canvas.toDataURL();
+})
 }
 
 Canvas.prototype.getMousePos = function(c ,evt) {

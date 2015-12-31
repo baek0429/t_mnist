@@ -13,6 +13,9 @@
 			width: 100px;
 			height: 25px;
 		}
+		.success{
+			background-color: #F0F8FF;
+		}
 	</style>
 </head>
 <body>
@@ -20,12 +23,17 @@
 	<canvas id="canvas" width=500 height=500 style="border:1px solid #000000;"></canvas>
 	<button id="clear">clear</button>
 	<canvas id="smallcanvas" width=125 height=125 style="border:1px solid #000000;"></canvas>
+	<div>
+		<h2>Thanks to https://github.com/sugyan/tensorflow-mnist</h2>
+	</div>
 	<div style="display:block;float:left;">
-		<table>
-			<th>/</th>
-			<th>1th</th>
-			<th>2th</th>
-			<th>result</th>
+		<table id="otable">
+			<tr>
+				<th>/</th>
+				<th>1th</th>
+				<th>2th</th>
+				<th>result</th>
+			</tr>
 			<tr>
 				<th>1</th>
 				<td></td>

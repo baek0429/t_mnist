@@ -6,6 +6,7 @@ import json
 import traceback
 import numpy as np
 from tornado.escape import json_encode
+import tensorflow as tf
 
 import sys
 sys.path.append('pysample')
@@ -51,7 +52,8 @@ class MNISTHandler(tornado.web.RequestHandler):
                  255.0).reshape(1, 784)
         output1 = simple(input)
         output2 = convolutional(input)
-        self.write(json_encode(output1))
+        superOutput = [output1,output2]
+        self.write(json_encode(superOutput))
 
     def prepare(self):
         if self.request.headers["Content-Type"].startswith("application/json"):
